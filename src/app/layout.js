@@ -3,7 +3,8 @@ import { Analytics } from "@vercel/analytics/next"
 import './../style/globals.css'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footerpage from "@/components/footer";
-import NavBarPage from "@/components/nar-bar";
+
+import Navbar from "@/components/nav-bar";
 
 
 const geistSans = Geist({
@@ -62,22 +63,23 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <Analytics/>
-        <SpeedInsights/>
-       <nav>
-        <NavBarPage/>
+        <Analytics />
+        <SpeedInsights />
+        <nav>
+          <Navbar/>
+          
 
-       </nav>
+        </nav>
 
-       <main>
-         {children}
-      
+        <main>
+          {children}
 
-       </main>
 
-       <footer>
-        <Footerpage/>
-       </footer>
+        </main>
+
+        <footer>
+          <Footerpage />
+        </footer>
       </body>
     </html>
   );
