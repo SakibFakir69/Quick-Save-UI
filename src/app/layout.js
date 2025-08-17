@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footerpage from "@/components/footer";
 
 import Navbar from "@/components/nav-bar";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 
 const geistSans = Geist({
@@ -59,27 +60,36 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Analytics />
-        <SpeedInsights />
-        <nav>
-          <Navbar/>
+        <ThemeProvider attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          <Analytics />
+          <SpeedInsights />
           
-
-        </nav>
-
-        <main>
-          {children}
+          <nav>
+            <Navbar />
 
 
-        </main>
+          </nav>
 
-        <footer>
-          <Footerpage />
-        </footer>
+          <main>
+
+            {children}
+
+
+
+
+          </main>
+
+          <footer>
+            <Footerpage />
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

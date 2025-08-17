@@ -1,12 +1,11 @@
+import React from "react";
 
-
-
-import React from 'react'
-
-function page() {
+function FAQsSection() {
   return (
-    <div>page</div>
-  )
+    <div>
+     
+    </div>
+  );
 }
 
-export default page
+export default FAQsSection;
