@@ -3,10 +3,12 @@
 import React from "react";
 import DownloadUI from "./download-ui/download-ui";
 
+
 function HeroSection() {
   return (
     <div className="p-10  bg-[#F2F2FB] dark:bg-black md:flex justify-center  w-full flex-col   ">
       {/* text */}
+  
 
       <div className="flex flex-col  ">
 
