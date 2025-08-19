@@ -1,6 +1,6 @@
 import React from "react";
 import { FcDownload } from "react-icons/fc";
-import AdBanner468x60 from "../ads/banner-ads-468x60";
+import AdBanner from "../AdBanner";
 function DownloadUI() {
   return (
     <div>
@@ -25,7 +25,12 @@ function DownloadUI() {
 
       <section className="flex flex-col relative gap-y-2 gap-2 mt-4">
         <p className="text-red-400 font-semibold absolute z-10 -mt-2 ">Advisement</p>
-        <AdBanner468x60 />
+           <AdBanner
+        adKey="9280d5e6ff1b44ad1a4c06975a4bcf03"
+        width={468}
+        height={60}
+        delay={1000} // 1 second delay to prevent conflict
+      />
       </section>
     </div>
   );
