@@ -16,9 +16,9 @@ import Link from "next/link";
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home", active: true },
-  { href: "/how-it-work", label: "How It Work" },
+  { href: "/how-it-work", label: "How It Work" , active:true},
   
-  { href: "#", label: "Pricing" },
+  { href: "/features", label: "Features", active:true },
   { href: "#", label: "About" },
 ];
 
@@ -70,13 +70,14 @@ export default function Navbar() {
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={index} className="w-full">
-                      <NavigationMenuLink
+
+                      <Link
                         href={link.href}
                         className="py-1.5"
                         active={link.active}
                       >
                         {link.label}
-                      </NavigationMenuLink>
+                      </Link>
                     </NavigationMenuItem>
                   ))}
                 </NavigationMenuList>

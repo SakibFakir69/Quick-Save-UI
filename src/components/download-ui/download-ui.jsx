@@ -24,13 +24,17 @@ function DownloadUI() {
       </div>
 
       <section className="flex flex-col relative gap-y-2 gap-2 mt-4">
-        <p className="text-red-400 font-semibold absolute z-10 -mt-2 ">Advisement</p>
-           <AdBanner
-        adKey="9280d5e6ff1b44ad1a4c06975a4bcf03"
-        width={468}
-        height={60}
-        delay={1000} // 1 second delay to prevent conflict
-      />
+        <p className="text-red-400 font-semibold absolute z-10 -mt-2 ">
+          Advisement
+        </p>
+
+         {/* Ad 468x60 - Use a unique adKey */}
+        <AdBanner
+          adKey="9280d5e6ff1b44ad1a4c06975a4bcf03" // First unique key
+          width={468}
+          height={60}
+          delay={500}
+        />
       </section>
     </div>
   );
