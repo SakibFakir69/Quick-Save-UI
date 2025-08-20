@@ -19,7 +19,7 @@ const navigationLinks = [
   { href: "/how-it-work", label: "How It Work" , active:true},
   
   { href: "/features", label: "Features", active:true },
-  { href: "#", label: "About" },
+  { href: "/faq", label: "Faq" },
 ];
 
 export default function Navbar() {
