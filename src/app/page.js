@@ -1,42 +1,71 @@
-"use client"
+"use client";
 import HeroSection from '@/components/hero-section';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import FAQsSection from './faq/page';
-import AdBanner from '@/components/AdBanner';
 import HowItWorkPage from './how-it-work/page';
 import FeaturesPage from './features/page';
-
+import Head from 'next/head';
+import AdBanner from '@/components/AdBanner';
 function HomePage() {
+  const [key, setKey] = useState('');
 
-  const  [ key , setKey ] = useState('');
-
-  setTimeout(()=>{
-    setKey("82b2719f640e5503f44c17db03880669")
-
-  },1000)
-
-
+  setTimeout(() => {
+    setKey("82b2719f640e5503f44c17db03880669");
+  }, 1000);
 
   return (
-    <div className='min-screen'>
-      {/* This empty h1 seems unnecessary - consider removing it */}
-      <h1 className='py-14 md:py-20 dark:bg-black bg-[#F2F2FB]'></h1>
+    <>
+      {/* SEO Head */}
+      <Head>
+        <title>QuicksaveVid - Free TikTok Video Downloader Without Watermark</title>
+        <meta
+          name="description"
+          content="Download TikTok videos quickly, for free, without watermark, and in high quality. Works on all devices."
+        />
+        <meta name="keywords" content="TikTok downloader, download TikTok videos, TikTok MP4, TikTok without watermark" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.quicksavevid.com" />
 
-      <HeroSection />
+        {/* Open Graph */}
+        <meta property="og:title" content="QuicksaveVid - Free TikTok Video Downloader" />
+        <meta property="og:description" content="Download TikTok videos quickly, for free, without watermark, and in high quality." />
+        <meta property="og:url" content="https://www.quicksavevid.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.quicksavevid.com/og-image.png" />
 
-      <HowItWorkPage />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="QuicksaveVid - Free TikTok Video Downloader" />
+        <meta name="twitter:description" content="Download TikTok videos quickly, for free, without watermark, and in high quality." />
+        <meta name="twitter:image" content="https://www.quicksavevid.com/og-image.png" />
+      </Head>
+
+      <main className='min-h-screen py-20'>
+        {/* Hero section should have main H1 for SEO */}
+        <HeroSection />
+
+        <HowItWorkPage />
+
+        <FeaturesPage />
+
+
+   
       
-      {/* Make sure this component is properly imported */}
-      <AdBanner  adKey={key}
-        width={300} 
-        height={250} 
-        delay={200} />
 
-        <FeaturesPage/>
+    
 
-      <FAQsSection />
-    </div>
-  )
+       <div className='flex justify-center items-center mb-3'>
+        <AdBanner adKey={"a51c2a35bf43564107606e2490f4cb45"} height={50} width={320}/> 
+       </div>
+
+
+        {/* FAQ with JSON-LD structured data for rich snippets */}
+        <FAQsSection />
+
+
+      </main>
+    </>
+  );
 }
 
 export default HomePage;

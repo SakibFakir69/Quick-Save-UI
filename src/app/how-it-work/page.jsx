@@ -3,14 +3,27 @@ import React from "react";
 
 function HowItWorkPage() {
   return (
-    <div className="py-20">
-      <h1 className="text-4xl font-bold text-center">How It Works </h1>
-      <p className="dark:text-stone-400 text-center mt-3 text-slate-900">Download any TikTok video in three simple steps
+    <section
+      id="how-it-works"
+      className="py-20 bg-white dark:bg-gray-900"
+      aria-labelledby="how-it-works-title"
+    >
+      {/* Heading for SEO */}
+      <h2
+        id="how-it-works-title"
+        className="text-4xl font-bold text-center text-gray-900 dark:text-white"
+      >
+        How It Works
+      </h2>
 
-</p>
+      {/* Subheading / description */}
+      <p className="mt-3 text-center text-lg text-gray-700 dark:text-stone-400 max-w-2xl mx-auto">
+        Download any TikTok video in three simple steps
+      </p>
 
+      {/* Steps component */}
       <HowitWorkSection />
-    </div>
+    </section>
   );
 }
 
