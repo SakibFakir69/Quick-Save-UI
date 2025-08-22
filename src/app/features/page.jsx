@@ -11,11 +11,7 @@ function FeaturesPage() {
       aria-labelledby="features-title"
     >
       <div className="flex justify-center border ">
-        <AdBanner
-          adKey="82b2719f640e5503f44c17db03880669"
-          width={300}
-          height={250}
-        />
+        
 
       </div>
       {/* Section header */}

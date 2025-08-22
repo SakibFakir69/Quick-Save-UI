@@ -58,6 +58,7 @@ function DownloadUI() {
 
         {/* Ads */}
         <div className="mt-6">
+          
           <AdBanner
             adKey={"a51c2a35bf43564107606e2490f4cb45"}
             height={50}
@@ -92,7 +93,7 @@ function DownloadUI() {
               Click here to download your video
             </a>
 
-            
+
           </div>
         )}
       </div>
