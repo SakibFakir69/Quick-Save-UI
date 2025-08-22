@@ -1,0 +1,7 @@
+# Allow all search engines to crawl your site
+User-agent: *
+Disallow: /api/          # Don't crawl API routes
+Disallow: /downloads/    # Don't crawl raw download files
+
+# Link to your sitemap
+Sitemap: https://quicksavevid.com/sitemap.xml

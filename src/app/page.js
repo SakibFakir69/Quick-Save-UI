@@ -38,6 +38,7 @@ function HomePage() {
         <meta name="twitter:title" content="QuicksaveVid - Free TikTok Video Downloader" />
         <meta name="twitter:description" content="Download TikTok videos quickly, for free, without watermark, and in high quality." />
         <meta name="twitter:image" content="https://www.quicksavevid.com/og-image.png" />
+        <meta name="robots" content="index, follow"></meta>
       </Head>
 
       <main className='min-h-screen py-20'>
