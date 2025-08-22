@@ -49,7 +49,7 @@ function HomePage() {
         <div>
           <script async="async" data-cfasync="false" src="//pl27471326.profitableratecpm.com/733b453a7f1c82e2a1d4106d67c54f94/invoke.js"></script>
           <div id="container-733b453a7f1c82e2a1d4106d67c54f94"></div>
-          
+
         </div>
 
         <HowItWorkPage />
@@ -66,12 +66,8 @@ function HomePage() {
 
 
 
-        {/* <div className='flex justify-center items-center mb-3'>
-        <AdBanner adKey={"a51c2a35bf43564107606e2490f4cb45"} height={50} width={320}/> 
-       </div> */}
 
 
-        {/* FAQ with JSON-LD structured data for rich snippets */}
         <FAQsSection />
 
 
