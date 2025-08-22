@@ -1,3 +1,5 @@
+
+"use client"
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -12,6 +14,7 @@ import {
 } from "@/components/ui/popover";
 import { ModeToggle } from "./ui/mode-toggle";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
@@ -23,6 +26,11 @@ const navigationLinks = [
 ];
 
 export default function Navbar() {
+
+  const loc = usePathname();
+  console.log(loc);
+
+  
   return (
     <header className="border-b px-4 md:px-6  w-full z-50 fixed bg-transparent backdrop-blur-3xl ">
 
@@ -138,7 +146,7 @@ export default function Navbar() {
           <ModeToggle />
 
           <Button asChild size="sm" className="text-sm">
-            <a href="#">Get Started</a>
+            <a href="#">Welcome</a>
           </Button>
         </div>
       </div>

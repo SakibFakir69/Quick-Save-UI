@@ -41,6 +41,7 @@ function HomePage() {
       </Head>
 
       <main className='min-h-screen py-20'>
+        
         {/* Hero section should have main H1 for SEO */}
         <HeroSection />
 
@@ -54,9 +55,9 @@ function HomePage() {
 
     
 
-       <div className='flex justify-center items-center mb-3'>
+       {/* <div className='flex justify-center items-center mb-3'>
         <AdBanner adKey={"a51c2a35bf43564107606e2490f4cb45"} height={50} width={320}/> 
-       </div>
+       </div> */}
 
 
         {/* FAQ with JSON-LD structured data for rich snippets */}
