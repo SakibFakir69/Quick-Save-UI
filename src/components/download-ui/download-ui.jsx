@@ -130,7 +130,7 @@ function DownloadUI() {
         )}
       </div>
       <h1 className="text-center">
-        Total vide Download <span>{count}</span>
+        Total video Download <span>{count}</span>
       </h1>
     </div>
   );
