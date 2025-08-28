@@ -56,6 +56,12 @@ function HomePage() {
 
         <FeaturesPage />
 
+           <AdBanner
+                    adKey={"a51c2a35bf43564107606e2490f4cb45"}
+                    height={50}
+                    width={320}
+                  />
+
 
 
 

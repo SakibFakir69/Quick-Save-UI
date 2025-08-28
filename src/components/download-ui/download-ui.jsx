@@ -18,7 +18,7 @@ function DownloadUI() {
         "https://tik-1-kzxw.onrender.com/api/counter"
       );
       setCount(res.data?.count);
-      console.log(res);
+   
     } catch (error) {}
   };
 
@@ -38,7 +38,7 @@ function DownloadUI() {
         { url }
       );
       counterFunction();
-      setVideoData(res.data);
+     
   
       setUrl(" ");
     
@@ -79,11 +79,7 @@ function DownloadUI() {
 
         {/* Ads */}
         <div className="mt-6">
-          <AdBanner
-            adKey={"a51c2a35bf43564107606e2490f4cb45"}
-            height={50}
-            width={320}
-          />
+       
         </div>
 
         <div className="hidden sm:block mt-3">
