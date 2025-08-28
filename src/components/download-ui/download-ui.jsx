@@ -1,14 +1,27 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { FcDownload } from "react-icons/fc";
 import axios from "axios";
 import AdBanner from "../AdBanner";
-import { myEnv } from "@/config/env-config";
+
 
 function DownloadUI() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [videoData, setVideoData] = useState(null);
+
+  const [count, setCount] = useState(0);
+
+  const counterFunction = async () => {
+    try {
+      const res = await axios.post(
+        "https://tik-1-kzxw.onrender.com/api/counter"
+      );
+      setCount(res.data?.count);
+      console.log(res);
+    } catch (error) {}
+  };
+
 
   const tiktokVideoDownload = async () => {
     if (!url.trim()) {
@@ -20,11 +33,15 @@ function DownloadUI() {
       setLoading(true);
       setVideoData(null);
 
-      const res = await axios.post(`https://tik-1-kzxw.onrender.com/api/download-tiktok`,  {url} );
+      const res = await axios.post(
+        `https://tik-1-kzxw.onrender.com/api/download-tiktok`,
+        { url }
+      );
+      counterFunction();
       setVideoData(res.data);
-      console.log(url);
-      setUrl(" ")
-      console.log("Video data:", res.data);
+  
+      setUrl(" ");
+    
     } catch (error) {
       console.error("Error downloading video:", error);
       alert("Failed to download. Please check the URL or try again.");
@@ -32,8 +49,6 @@ function DownloadUI() {
       setLoading(false);
     }
   };
-
-
 
   return (
     <div className="max-w-xl mx-auto mt-6">
@@ -52,13 +67,18 @@ function DownloadUI() {
             className="flex items-center justify-center gap-2 bg-gradient-to-b from-[#5E63F0] to-[#9453E2] text-white px-6 py-3 rounded-md hover:opacity-90 transition"
             disabled={loading}
           >
-            {loading ? "Downloading..." : <><FcDownload /> Download</>}
+            {loading ? (
+              "Downloading..."
+            ) : (
+              <>
+                <FcDownload /> Download
+              </>
+            )}
           </button>
         </section>
 
         {/* Ads */}
         <div className="mt-6">
-          
           <AdBanner
             adKey={"a51c2a35bf43564107606e2490f4cb45"}
             height={50}
@@ -82,9 +102,8 @@ function DownloadUI() {
             <p className="text-sm mb-4">{videoData.title}</p>
 
             <a
-            onClick={()=> videoData(null)}
-               href={`https://tik-1-kzxw.onrender.com${videoData.downloadUrl}`}
-
+              onClick={() => videoData(null)}
+              href={`https://tik-1-kzxw.onrender.com${videoData.downloadUrl}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -92,11 +111,12 @@ function DownloadUI() {
             >
               Click here to download your video
             </a>
-
-
           </div>
         )}
       </div>
+      <h1 className="text-center">
+        Total vide Download <span>{count}</span>
+      </h1>
     </div>
   );
 }

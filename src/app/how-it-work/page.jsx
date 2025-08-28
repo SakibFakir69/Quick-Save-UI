@@ -1,13 +1,22 @@
+"use client"
+import { useState,useEffect } from "react";
 import HowitWorkSection from "@/components/how-it-work";
 import React from "react";
 
 function HowItWorkPage() {
+
+
+   
+
+
+
   return (
     <section
       id="how-it-works"
       className="py-20 bg-white dark:bg-gray-900"
       aria-labelledby="how-it-works-title"
     >
+
       {/* Heading for SEO */}
       <h2
         id="how-it-works-title"
