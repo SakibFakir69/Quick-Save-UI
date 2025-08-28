@@ -12,14 +12,31 @@ function DownloadUI() {
 
   const [count, setCount] = useState(0);
 
-  const counterFunction = async () => {
+    // Fetch current count on component mount
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const res = await axios.get(
+          "https://tik-1-kzxw.onrender.com/api/counter"
+        );
+        setCount(res.data?.count || 0);
+      } catch (err) {
+        console.error("Failed to fetch count:", err);
+      }
+    };
+    fetchCount();
+  }, []);
+
+
+    const counterFunction = async () => {
     try {
       const res = await axios.post(
         "https://tik-1-kzxw.onrender.com/api/counter"
       );
       setCount(res.data?.count);
-   
-    } catch (error) {}
+    } catch (error) {
+      console.error("Failed to update counter:", error);
+    }
   };
 
 
@@ -37,7 +54,9 @@ function DownloadUI() {
         `https://tik-1-kzxw.onrender.com/api/download-tiktok`,
         { url }
       );
+
       counterFunction();
+  
      
   
       setUrl(" ");
