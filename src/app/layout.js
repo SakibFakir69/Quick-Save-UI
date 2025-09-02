@@ -67,6 +67,7 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="aRj8NbPQtAzHymP4PaNW_3IwNfrVQ1JQ8DE854Kl_IM"
         />
+        <meta href="https://img.icons8.com/fluency/50/quick-mode-on.png"/>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

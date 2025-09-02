@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /downloads/
+
+Sitemap: https://www.quicksavevid.com/sitemap.xml

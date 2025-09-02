@@ -22,6 +22,8 @@ function HomePage() {
           name="description"
           content="Download TikTok videos quickly, for free, without watermark, and in high quality. Works on all devices."
         />
+        <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/50/quick-mode-on.png" />
+
         <meta name="keywords" content="TikTok downloader, download TikTok videos, TikTok MP4, TikTok without watermark" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.quicksavevid.com" />
@@ -38,7 +40,7 @@ function HomePage() {
         <meta name="twitter:title" content="QuicksaveVid - Free TikTok Video Downloader" />
         <meta name="twitter:description" content="Download TikTok videos quickly, for free, without watermark, and in high quality." />
         <meta name="twitter:image" content="https://www.quicksavevid.com/og-image.png" />
-        <meta name="robots" content="index, follow"></meta>
+   
       </Head>
 
       <main className='min-h-screen py-20'>
@@ -56,11 +58,11 @@ function HomePage() {
 
         <FeaturesPage />
 
-           <AdBanner
-                    adKey={"a51c2a35bf43564107606e2490f4cb45"}
-                    height={50}
-                    width={320}
-                  />
+        <AdBanner
+          adKey={"a51c2a35bf43564107606e2490f4cb45"}
+          height={50}
+          width={320}
+        />
 
 
 
