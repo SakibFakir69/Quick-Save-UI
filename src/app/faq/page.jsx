@@ -88,33 +88,7 @@ export default function FAQSection() {
         ))}
       </div>
 
-      {/* Optional JSON-LD structured data for FAQ SEO */}
-      <Head>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Is QuicksaveVid free?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, QuicksaveVid is 100% free and works on all devices.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Can I download TikTok videos without watermark?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, QuicksaveVid lets you download TikTok videos without watermark in HD quality.",
-                },
-              },
-            ],
-          })}
-        </script>
-      </Head>
+      
     </section>
   );
 }

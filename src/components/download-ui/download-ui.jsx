@@ -1,9 +1,8 @@
 "use client";
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { FcDownload } from "react-icons/fc";
 import axios from "axios";
 import AdBanner from "../AdBanner";
-
 
 function DownloadUI() {
   const [url, setUrl] = useState("");
@@ -12,13 +11,11 @@ function DownloadUI() {
 
   const [count, setCount] = useState(0);
 
-    // Fetch current count on component mount
+  // Fetch current count on component mount
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        const res = await axios.get(
-          "https://tik-1-kzxw.onrender.com/api/counter"
-        );
+        const res = await axios.get("https://tik-1-kzxw.onrender.com/counter");
         setCount(res.data?.count || 0);
       } catch (err) {
         console.error("Failed to fetch count:", err);
@@ -27,18 +24,15 @@ function DownloadUI() {
     fetchCount();
   }, []);
 
-
-    const counterFunction = async () => {
+  const counterFunction = async () => {
     try {
       const res = await axios.post(
         "https://tik-1-kzxw.onrender.com/api/counter"
       );
-      setCount(res.data?.count);
     } catch (error) {
       console.error("Failed to update counter:", error);
     }
   };
-
 
   const tiktokVideoDownload = async () => {
     if (!url.trim()) {
@@ -56,11 +50,11 @@ function DownloadUI() {
       );
 
       counterFunction();
-  
-     
-  
-      setUrl(" ");
-    
+
+      // Set video data to state
+      setVideoData(res.data);
+
+      setUrl(""); // clear input
     } catch (error) {
       console.error("Error downloading video:", error);
       alert("Failed to download. Please check the URL or try again.");
@@ -68,6 +62,8 @@ function DownloadUI() {
       setLoading(false);
     }
   };
+
+  console.log(url, videoData);
 
   return (
     <div className="max-w-xl mx-auto mt-6">
@@ -97,9 +93,7 @@ function DownloadUI() {
         </section>
 
         {/* Ads */}
-        <div className="mt-6">
-       
-        </div>
+        <div className="mt-6"></div>
 
         <div className="hidden sm:block mt-3">
           <AdBanner
@@ -117,7 +111,7 @@ function DownloadUI() {
             <p className="text-sm mb-4">{videoData.title}</p>
 
             <a
-              onClick={() => videoData(null)}
+              onClick={() => setVideoData(null)}
               href={`https://tik-1-kzxw.onrender.com${videoData.downloadUrl}`}
               target="_blank"
               rel="noopener noreferrer"
