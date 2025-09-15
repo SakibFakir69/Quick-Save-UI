@@ -8,16 +8,9 @@ import Head from 'next/head';
 import AdBanner from '@/components/AdBanner';
 
 
-export const metadata = {
-  title: 'How It Works - QuicksaveVid TikTok Downloader',
-  alternates: { canonical: 'https://www.quicksavevid.com/how-it-works' },
-};
-function HomePage() {
-  const [key, setKey] = useState('');
 
-  setTimeout(() => {
-    setKey("82b2719f640e5503f44c17db03880669");
-  }, 1000);
+
+function HomePage() {
 
   return (
     <>
