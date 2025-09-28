@@ -8,7 +8,10 @@ export const baseApi = createApi({
         baseUrl:process.env.BACKEND_URL,
 
     }),
+    
 
     endpoints:()=>({})
 
 })
+
+// add tag for cahing
