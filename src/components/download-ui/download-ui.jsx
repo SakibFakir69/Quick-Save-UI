@@ -4,7 +4,12 @@ import { FcDownload } from "react-icons/fc";
 import axios from "axios";
 import AdBanner from "../AdBanner";
 
+import { useDownloadVideoMutation } from "../redux/api/download/download";
+
 function DownloadUI() {
+
+  const [downloadVideo,{isLoading,error}] = useDownloadVideoMutation();
+
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [videoData, setVideoData] = useState(null);
@@ -112,7 +117,7 @@ function DownloadUI() {
         {/* Download result */}
         {videoData && (
           <div className="mt-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-md">
-            <h3 className="font-semibold mb-2">Download Ready:</h3>
+          
             <p className="text-sm mb-4">{videoData.title}</p>
 
             <a
@@ -123,7 +128,7 @@ function DownloadUI() {
               className="text-blue-600 hover:underline"
               download={true}
             >
-              Click here to download your video
+              <FcDownload/>Download Now
             </a>
           </div>
         )}
