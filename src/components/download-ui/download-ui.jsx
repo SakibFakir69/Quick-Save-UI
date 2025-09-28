@@ -17,6 +17,7 @@ function DownloadUI() {
       try {
         const res = await axios.get("https://tik-1-kzxw.onrender.com/counter");
         setCount(res.data?.count || 0);
+        console.log(res?.data, "data");
       } catch (err) {
         console.error("Failed to fetch count:", err);
       }
@@ -63,32 +64,36 @@ function DownloadUI() {
     }
   };
 
-  console.log(url, videoData);
-
   return (
     <div className="max-w-xl mx-auto mt-6">
       <div className="bg-white dark:bg-black shadow-2xl p-6 md:p-10 rounded-xl">
         <section className="flex flex-col md:flex-row gap-3 md:gap-4">
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            className="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            placeholder="Enter your TikTok video link"
-          />
+          <div className="relative flex-1">
+            <input
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              className="w-full px-4 py-2 pr-20 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter your TikTok video link"
+            />
+
+            {/* Paste button inside input */}
+            <button
+              onClick={() => {
+                navigator.clipboard.readText().then((text) => setUrl(text));
+              }}
+              className="absolute top-1/2 right-1.5 transform -translate-y-1/2 bg-indigo-500 text-white px-3  py-1 rounded-md hover:bg-indigo-600 transition text-sm"
+            >
+              Paste
+            </button>
+          </div>
 
           <button
             onClick={tiktokVideoDownload}
             className="flex items-center justify-center gap-2 bg-gradient-to-b from-[#5E63F0] to-[#9453E2] text-white px-6 py-3 rounded-md hover:opacity-90 transition"
             disabled={loading}
           >
-            {loading ? (
-              "Downloading..."
-            ) : (
-              <>
-                <FcDownload /> Download
-              </>
-            )}
+            {loading ? "Downloading..." : "Submit"}
           </button>
         </section>
 
