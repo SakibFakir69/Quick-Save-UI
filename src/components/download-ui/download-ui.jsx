@@ -52,7 +52,7 @@ function DownloadUI() {
       );
        await countDownload().unwrap();
 
-      counterFunction();
+    
 
       // Set video data to state
       setVideoData(res.data);
