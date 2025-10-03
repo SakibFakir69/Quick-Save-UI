@@ -22,13 +22,13 @@ export const counterApi = baseApi.injectEndpoints({
         }),
         // count download
         countDownload:builder.mutation({
-            query:(payload)=>({
+            query:()=>({
                 url:"/api/counter",
                 method:"POST",
-                body:payload
+                
 
-            }),
-            providesTags:['count']
+            }), 
+            invalidatesTags:['count']
 
         })
 

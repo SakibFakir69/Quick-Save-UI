@@ -10,7 +10,7 @@ import { useCountDownloadMutation, useCounterShowQuery } from "../redux/api/coun
 function DownloadUI() {
 
   const [downloadVideo] = useDownloadVideoMutation();
-  const [countDownload , ]= useCountDownloadMutation();
+  const [countDownload  ]= useCountDownloadMutation();
 
   const {data , isLoading} = useCounterShowQuery();
   const {count:countData} = data ?? {};
@@ -34,15 +34,7 @@ function DownloadUI() {
 
  
 
-  const counterFunction = async () => {
-    try {
-      const res = await axios.post(
-        "https://tik-1-kzxw.onrender.com/api/counter"
-      );
-    } catch (error) {
-      console.error("Failed to update counter:", error);
-    }
-  };
+ 
 
   const tiktokVideoDownload = async () => {
     if (!url.trim()) {
@@ -58,13 +50,14 @@ function DownloadUI() {
         `https://tik-1-kzxw.onrender.com/api/download-tiktok`,
         { url }
       );
+       await countDownload().unwrap();
 
       counterFunction();
 
       // Set video data to state
       setVideoData(res.data);
 
-      setUrl(""); // clear input
+      setUrl(""); 
     } catch (error) {
       console.error("Error downloading video:", error);
       alert("Failed to download. Please check the URL or try again.");
@@ -120,7 +113,7 @@ function DownloadUI() {
 
         {/* Download result */}
         {videoData && (
-          <div className="mt-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-md">
+          <div className="mt-6 p-1 bg-gray-100 dark:bg-gray-800 rounded-md">
           
             <p className="text-sm mb-4">{videoData.title}</p>
 
@@ -129,10 +122,10 @@ function DownloadUI() {
               href={`https://tik-1-kzxw.onrender.com${videoData.downloadUrl}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-blue-600 hover:underline flex flex-col justify-center items-center text-center font-medium mb-3"
               download={true}
             >
-              <FcDownload/>Download Now
+              <FcDownload className="md:size-10 size-8 font-bold"/>Download Now
             </a>
           </div>
         )}
