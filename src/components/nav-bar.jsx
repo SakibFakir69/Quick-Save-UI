@@ -28,7 +28,7 @@ const navigationLinks = [
 export default function Navbar() {
 
   const loc = usePathname();
-  console.log(loc);
+
 
   
   return (

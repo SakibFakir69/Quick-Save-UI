@@ -4,39 +4,23 @@
 import { baseApi } from "../downloadApi";
 
 
-
 export const counterApi = baseApi.injectEndpoints({
+  endpoints: (builder) => ({
+    // Fetch counter
+    counterShow: builder.query({
+      query: () => "/counter",
+      providesTags: ["count"],  // query provides the 'count' tag
+    }),
 
-    endpoints:(builder)=>({
-        counterShow:builder.query({
+    // Increment counter
+    countDownload: builder.mutation({
+      query: () => ({
+        url: "/api/counter",  // match backend POST route
+        method: "POST",
+      }),
+      invalidatesTags: ["count"],  // invalidates query cache for refetch
+    }),
+  }),
+});
 
-            query:()=>({
-                url:"/counter",
-                method:"GET"
-            }),
-
-            providesTags:['count']
-
-
-
-        }),
-        // count download
-        countDownload:builder.mutation({
-            query:()=>({
-                url:"/api/counter",
-                method:"POST",
-                
-
-            }), 
-            invalidatesTags:['count']
-
-        })
-
-
-
-    })
-
-
-})
-
-export const {useCounterShowQuery,useCountDownloadMutation} = counterApi;
+export const { useCounterShowQuery, useCountDownloadMutation } = counterApi;

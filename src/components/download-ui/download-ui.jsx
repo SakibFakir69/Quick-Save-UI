@@ -9,27 +9,25 @@ import { useCountDownloadMutation, useCounterShowQuery } from "../redux/api/coun
 
 function DownloadUI() {
 
-  const [downloadVideo] = useDownloadVideoMutation();
-  const [countDownload  ]= useCountDownloadMutation();
 
-  const {data , isLoading} = useCounterShowQuery();
-  const {count:countData} = data ?? {};
 
 
   
-  console.log(data, countData);
 
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [videoData, setVideoData] = useState(null);
 
   const [count, setCount] = useState(0);
+    const [downloadVideo] = useDownloadVideoMutation();
+  const [countDownload  ]= useCountDownloadMutation();
 
-  useEffect(()=>{
-    setCount(countData || data?.count);
+  const {data , isLoading} = useCounterShowQuery();
+  const { count: countData } = data ?? {};
 
-  },[countData, data])
-
+ useEffect(() => {
+  setCount(countData || 0);   // update when data changes
+}, [countData]);
 
 
  
@@ -51,6 +49,7 @@ function DownloadUI() {
         { url }
       );
        await countDownload().unwrap();
+       console.log("passed")
 
     
 
@@ -115,7 +114,7 @@ function DownloadUI() {
         {videoData && (
           <div className="mt-6 p-1 bg-gray-100 dark:bg-gray-800 rounded-md">
           
-            <p className="text-sm mb-4">{videoData.title}</p>
+            <p className="text-sm mb-4">{videoData.title.substring(0,30)}</p>
 
             <a
               onClick={() => setVideoData(null)}
