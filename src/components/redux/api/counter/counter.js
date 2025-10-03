@@ -18,7 +18,7 @@ export const counterApi = baseApi.injectEndpoints({
         url: "/api/counter",  // match backend POST route
         method: "POST",
       }),
-      invalidatesTags: ["count"],  // invalidates query cache for refetch
+      invalidatesTags: ["count"],  
     }),
   }),
 });
