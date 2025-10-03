@@ -6,6 +6,8 @@ import Footerpage from "@/components/footer";
 
 import Navbar from "@/components/nav-bar";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import ReduxProviderWrapper from "@/components/ReduxProviderWrapper";
+
 
 
 const geistSans = Geist({
@@ -87,7 +89,13 @@ export default function RootLayout({ children }) {
 
           <main>
 
-            {children}
+            <ReduxProviderWrapper>
+              {children}
+            </ReduxProviderWrapper>
+
+        
+
+          
 
 
 

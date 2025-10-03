@@ -15,7 +15,7 @@ export const counterApi = baseApi.injectEndpoints({
                 method:"GET"
             }),
 
-            providesTags:['']
+            providesTags:['count']
 
 
 
@@ -23,11 +23,12 @@ export const counterApi = baseApi.injectEndpoints({
         // count download
         countDownload:builder.mutation({
             query:(payload)=>({
-                url:"/counter",
+                url:"/api/counter",
                 method:"POST",
                 body:payload
 
-            })
+            }),
+            providesTags:['count']
 
         })
 

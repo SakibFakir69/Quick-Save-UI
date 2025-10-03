@@ -5,10 +5,19 @@ import axios from "axios";
 import AdBanner from "../AdBanner";
 
 import { useDownloadVideoMutation } from "../redux/api/download/download";
+import { useCountDownloadMutation, useCounterShowQuery } from "../redux/api/counter/counter";
 
 function DownloadUI() {
 
-  const [downloadVideo,{isLoading,error}] = useDownloadVideoMutation();
+  const [downloadVideo] = useDownloadVideoMutation();
+  const [countDownload , ]= useCountDownloadMutation();
+
+  const {data , isLoading} = useCounterShowQuery();
+  const {count:countData} = data ?? {};
+
+
+  
+  console.log(data, countData);
 
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,19 +25,14 @@ function DownloadUI() {
 
   const [count, setCount] = useState(0);
 
-  // Fetch current count on component mount
-  useEffect(() => {
-    const fetchCount = async () => {
-      try {
-        const res = await axios.get("https://tik-1-kzxw.onrender.com/counter");
-        setCount(res.data?.count || 0);
-        console.log(res?.data, "data");
-      } catch (err) {
-        console.error("Failed to fetch count:", err);
-      }
-    };
-    fetchCount();
-  }, []);
+  useEffect(()=>{
+    setCount(countData || data?.count);
+
+  },[countData, data])
+
+
+
+ 
 
   const counterFunction = async () => {
     try {
@@ -134,7 +138,13 @@ function DownloadUI() {
         )}
       </div>
       <h1 className="text-center">
-        Total video Download <span>{count}</span>
+        Total video Download <span>
+          
+          {
+            isLoading ? "..." : count
+          }
+
+        </span>
       </h1>
     </div>
   );
