@@ -13,16 +13,16 @@ function DownloadUI() {
 
 
   
+  const [downloadVideo] = useDownloadVideoMutation();
+  const [countDownload  ]= useCountDownloadMutation();
 
+  const {data , isLoading} = useCounterShowQuery();
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [videoData, setVideoData] = useState(null);
 
   const [count, setCount] = useState(0);
-    const [downloadVideo] = useDownloadVideoMutation();
-  const [countDownload  ]= useCountDownloadMutation();
-
-  const {data , isLoading} = useCounterShowQuery();
+  
   const { count: countData } = data ?? {};
 
  useEffect(() => {
